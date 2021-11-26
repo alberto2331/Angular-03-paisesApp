@@ -1,0 +1,49 @@
+<div
+    *ngIf="!tito, else divPais"
+    class="alert alert-info"
+>
+Espere por favor...
+</div>
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1>Pais:<small>  {{tito.name}}  </small></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="tito.flag" class="img-thumbnail">
+        </div>
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Población</strong> {{tito.population |number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Codigo Numérico</strong> {{tito.numericCode}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Codigo alpha3</strong> {{tito.alpha3Code}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones</h3>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary mr-1">{{tito.translations.de}}</span>
+            <span class="badge bg-primary mr-1">{{tito.translations.es}}</span>
+            <span class="badge bg-primary mr-1">{{tito.translations.fr}}</span>
+            <span class="badge bg-primary mr-1">{{tito.translations.ja}}</span>
+            <span class="badge bg-primary mr-1">{{tito.translations.it}}</span>
+            <span class="badge bg-primary mr-1">{{tito.translations.br}}</span>
+            <!--En el archivo style.css le agregamos un margin-right de 3px a la clase "mr-1" para que no
+            se vea tan pegado-->
+        </div>
+    </div>
+    <!--<pre>
+        {{tito|json}}
+    </pre>-->
+</ng-template>
